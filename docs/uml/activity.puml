@@ -1,0 +1,63 @@
+@startuml
+
+start
+
+:Enter username and password;
+
+:Click Log In;
+
+:Send login request to Login.php;
+
+if (Credentials valid?) then (Yes)
+
+    :Store user information in cookie;
+
+    :Open Colors page;
+
+    while (Continue using application?) is (Yes)
+
+        if (Choose action) then (Search Color)
+
+            :Enter search text;
+
+            :Send search request;
+
+            :Search user's colors;
+
+            if (Colors found?) then (Yes)
+                :Display matching colors;
+            else (No)
+                :Display no change;
+            endif
+
+        else (Add Color)
+
+            :Enter new color;
+
+            :Send add color request;
+
+            :Add color to database;
+
+            :Display confirmation;
+
+        endif
+
+    endwhile (No)
+
+    :Log Out;
+
+    :Clear cookie;
+
+    :Return to login page;
+
+    stop
+
+else (No)
+
+    :Displays User/Password combination incorrect;
+
+    stop
+
+endif
+
+@enduml
