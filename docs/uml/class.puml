@@ -1,0 +1,43 @@
+@startuml
+
+class User {
+    ID
+    Login
+    Password
+    firstName
+    lastName
+}
+
+class Color {
+    UserId
+    Name
+}
+
+class LoginAPI {
+    +getRequestInfo()
+    +sendResultInfoAsJson()
+    +returnWithError()
+    +returnWithInfo()
+}
+
+class SearchColorsAPI {
+    +getRequestInfo()
+    +sendResultInfoAsJson()
+    +returnWithError()
+    +returnWithInfo()
+}
+
+class AddColorAPI {
+    +getRequestInfo()
+    +sendResultInfoAsJson()
+    +returnWithError()
+}
+
+
+
+LoginAPI ..> User : authenticates
+User ..> Color
+SearchColorsAPI ..> Color : searches
+AddColorAPI ..> Color : adds
+
+@enduml
