@@ -1,3 +1,5 @@
+/* exported doLogin, readCookie, doLogout, addColor, searchColor */
+
 const urlBase = 'http://cop4331fall26.xyz/LAMPAPI';
 const extension = 'php';
 
@@ -113,7 +115,7 @@ function addColor()
 	let newColor = document.getElementById("colorText").value;
 	document.getElementById("colorAddResult").innerHTML = "";
 
-	let tmp = {color:newColor,userId,userId};
+	let tmp = {color:newColor,userId:userId};
 	let jsonPayload = JSON.stringify( tmp );
 
 	let url = urlBase + '/AddColor.' + extension;
